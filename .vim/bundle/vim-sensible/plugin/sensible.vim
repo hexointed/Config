@@ -8,9 +8,9 @@ else
   let g:loaded_sensible = 1
 endif
 
-if has('autocmd')
-  filetype plugin indent on
-endif
+"if has('autocmd')
+"  filetype plugin indent on
+"endif
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
@@ -20,7 +20,7 @@ endif
 set autoindent
 set backspace=indent,eol,start
 set complete-=i
-set smarttab
+"set smarttab
 
 set nrformats-=octal
 

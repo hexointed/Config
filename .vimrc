@@ -3,7 +3,7 @@ execute pathogen#infect()
 let g:pencil_higher_contrast_ui = 1
 colorscheme pencil
 
-let &colorcolumn=join(range(80,999),",")
+let &colorcolumn=join(range(81,999),",")
 
 set autoindent
 set shiftwidth=4

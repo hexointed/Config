@@ -1,7 +1,8 @@
 execute pathogen#infect()
 
-let g:pencil_higher_contrast_ui = 1
 colorscheme pencil
+set background=light
+let g:pencil_gutter_color = 1
 
 let &colorcolumn=join(range(81,999),",")
 

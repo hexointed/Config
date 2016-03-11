@@ -7,7 +7,10 @@ let g:neocomplete#enable_at_startup = 1
 
 let &colorcolumn=join(range(81,999),",")
 
-set autoindent
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 

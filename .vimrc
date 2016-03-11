@@ -3,6 +3,7 @@ execute pathogen#infect()
 colorscheme pencil
 set background=light
 let g:pencil_gutter_color = 1
+let g:neocomplete#enable_at_startup = 1
 
 let &colorcolumn=join(range(81,999),",")
 

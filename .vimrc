@@ -9,7 +9,7 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#auto_completion_start_length=1
 let g:neocomplete#sources#syntax#min_keyword_length = 0
 
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(81,9999),",")
 
 set noexpandtab
 set copyindent
@@ -24,16 +24,16 @@ set nobomb
 set encoding=utf-8
 setglobal fileencoding=utf-8
 
-"don't remove lines with only whitespace
-inoremap <CR> <CR>X<C-H>
+"use TAB as autocomplete key
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" <CR>: close popup and save indent.
+" <CR>: close popup and save indent. And don't remove lines with only 
+" whitespace.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  return neocomplete#close_popup() . "\<CR>x\<C-H>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>x\<C-H>"
 endfunction
 
 " don't use arrow keys to move in autocomplete popup

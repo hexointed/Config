@@ -7,7 +7,8 @@ let g:pencil_gutter_color = 1
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#auto_completion_start_length=1
-let g:neocomplete#sources#syntax#min_keyword_length = 0
+let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#sources#buffer#max_keyword_length = 30
 
 let &colorcolumn=join(range(81,9999),",")
 
@@ -19,6 +20,7 @@ set shiftwidth=4
 set tabstop=4
 
 set number
+set relativenumber
 
 set nobomb
 set encoding=utf-8
@@ -26,15 +28,18 @@ setglobal fileencoding=utf-8
 
 "use TAB as autocomplete key
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <S-Tab> <C-l>
 
 " <CR>: close popup and save indent. And don't remove lines with only 
 " whitespace.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>x\<C-H>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>x\<C-H>"
+	return neocomplete#close_popup() . "\<CR>x\<C-H>"
+	" For no inserting <CR> key.
+	"return pumvisible() ? neocomplete#close_popup() : "\<CR>x\<C-H>"
 endfunction
+
+inoremap <silent><BS> x<C-H><C-H>
 
 " don't use arrow keys to move in autocomplete popup
 inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"

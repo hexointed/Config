@@ -6,9 +6,9 @@ let g:pencil_gutter_color = 1
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#auto_completion_start_length=1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#sources#buffer#max_keyword_length = 30
+let g:neocomplete#auto_completion_start_length=2
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#sources#buffer#max_keyword_length = 15
 
 let &colorcolumn=join(range(81,9999),",")
 

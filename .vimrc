@@ -8,7 +8,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#auto_completion_start_length=2
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#sources#buffer#max_keyword_length = 15
+let g:neocomplete#sources#buffer#max_keyword_length = 8
 
 let &colorcolumn=join(range(81,9999),",")
 
@@ -25,6 +25,9 @@ set relativenumber
 set nobomb
 set encoding=utf-8
 setglobal fileencoding=utf-8
+
+set incsearch
+set hlsearch
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
@@ -62,7 +65,7 @@ inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
 inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 
 "Set window name to current file name.
-let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+let &titlestring = expand("%:t")
 if &term == "screen"
   set t_ts=^[k
   set t_fs=^[\
@@ -71,9 +74,27 @@ if &term == "screen" || &term == "xterm"
   set title
 endif
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+let g:Hours=0
+let g:Minutes=0
+
+au BufNewFile,BufRead *.idr set filetype=haskell
+
+function! Sum()
+	let g:Hours = 0
+	let g:Minutes = 0
+	normal Gdd
+	call feedkeys(":%s/\\(\\d\\+\\):\\(\\d\\+\\)/\\=Sum_h(submatch(1),submatch(2),submatch(0))/\<CR>\<Esc>G")
+	call feedkeys("oTotal:     \<Esc>")
+	call feedkeys("\"=g:Hours\<CR>pa:\<Esc>\"=g:Minutes\<CR>p\<Esc>")
+	call feedkeys(":if g:Minutes <= 9 | call feedkeys(\"i0\\<Esc>\") | endif | if g:Hours < 100 | call feedkeys(\"0wa \\<Esc>$\") | endif \<CR>")
+endfunction
+
+function! Sum_h(hours, minutes, string)
+	let g:Minutes = g:Minutes + a:minutes
+	if g:Minutes >= 60
+		let g:Minutes = g:Minutes - 60
+		let g:Hours = g:Hours + 1
+	endif
+	let g:Hours = g:Hours + a:hours
+	return a:string
+endfunction

@@ -10,7 +10,7 @@ let g:neocomplete#auto_completion_start_length=2
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#sources#buffer#max_keyword_length = 8
 
-let &colorcolumn=join(range(81,9999),",")
+let &colorcolumn=81
 
 set noexpandtab
 set copyindent

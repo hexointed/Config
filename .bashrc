@@ -1,3 +1,5 @@
+setxkbmap -option caps:escape
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -41,10 +43,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH:~/Xilinx/Vivado/2016.4/bin" # Add RVM to PATH for scripting
 alias ghci='ghci -fno-warn-tabs'
 alias web='xdg-open ~/test.html > /dev/null 2> /dev/null'
 alias clashi='clash --interactive -fno-warn-tabs'
 alias clash='clash -fno-warn-tabs'
 alias :q='exit'
 alias open="xdg-open 2> /dev/null"
+alias vim="vim -c \":tab ball\""
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep --color=none -E "state|time\ to|percentage"'

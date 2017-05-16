@@ -1,11 +1,26 @@
 import XMonad
 import XMonad.Util.EZConfig
+import XMonad.Hooks.SetWMName
 
-main = xmonad $ defaultConfig `additionalKeysP` myKeys
+main = xmonad $ 
+	(defaultConfig 
+		{ startupHook = setWMName "LG3D" 
+		, borderWidth = 2
+		}
+	) `additionalKeysP` myKeys
 
 myKeys = [ 
-		("C-S-t", spawn "xdotool mousemove 1    1"), 
-		("C-S-n", spawn "xdotool mousemove 1919 1"),
-		("C-S-v", spawn "xdotool mousemove 1919 1079"),
-		("C-S-w", spawn "xdotool mousemove 1    1079")
+		("C-S-t", xdo $ safemouse 5    5), 
+		("C-S-n", xdo $ safemouse 1915 5),
+		("C-S-v", xdo $ safemouse 1915 1075),
+		("C-S-w", xdo $ safemouse 5    1075)
 	]
+
+xdo action = spawn ("xdotool " ++ action)
+
+mousemove x y = " mousemove " ++ show x ++ " " ++ show y
+
+safemouse x y = mousemove (xmax - x) (ymax - y) ++ mousemove x y
+	where
+		xmax = 1920
+		ymax = 1080

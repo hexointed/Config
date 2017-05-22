@@ -23,6 +23,8 @@ set number
 set relativenumber
 
 set nobomb
+set enc=utf-8
+set fileencodings=utf-8
 set encoding=utf-8
 setglobal fileencoding=utf-8
 

@@ -111,7 +111,7 @@ syntax region lhsHaskellBeginEndBlock start="^\\begin{code}\s*$" matchgroup=NONE
 
 syntax match lhsBirdTrack "^>" contained
 
-syntax region lhsInvHaskellBirdTrack start="^<" end="\%(^[^<]\)\@=" contains=@haskellTop,lhsInvBirdTrack containedin=@lhsTeXContainer
+syntax region lhsInvHaskellBirdTrack start="^<" end="\%(^[^<]\)\@=" contains=lhsInvBirdTrack containedin=@lhsTeXContainer
 
 syntax match lhsInvBirdTrack "^<" contained
 
@@ -147,5 +147,5 @@ unlet s:oldcolumn
 let b:current_syntax = "lhaskell"
 
 " vim: ts=8
-highlight lhsBirdTrack ctermfg=LightGrey guifg=Green
-highlight lhsInvBirdTrack ctermfg=LightGrey guifg=Green
+highlight lhsBirdTrack ctermfg=147
+highlight lhsInvBirdTrack ctermfg=LightGrey

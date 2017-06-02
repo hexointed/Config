@@ -1,5 +1,6 @@
 execute pathogen#infect()
 
+set t_Co=256
 colorscheme pencil
 set background=light
 let g:pencil_gutter_color = 1

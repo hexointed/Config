@@ -98,6 +98,7 @@ else
     syntax cluster lhsTeXContainer contains=.*
 endif
 
+
 " Literate Haskell is Haskell in between text, so at least read Haskell
 " highlighting
 if version < 600
@@ -106,14 +107,11 @@ else
     syntax include @haskellTop syntax/haskell.vim
 endif
 
-syntax region lhsHaskellBirdTrack start="^>" end="\%(^[^>]\)\@=" contains=@haskellTop,lhsBirdTrack containedin=@lhsTeXContainer
+syntax region lhsHaskellBirdTrack start="^>" end="\%(^[^>]\)\@=" contains=lhsBirdTrack,@haskellTop containedin=@lhsTeXContainer
 syntax region lhsHaskellBeginEndBlock start="^\\begin{code}\s*$" matchgroup=NONE end="\%(^\\end{code}.*$\)\@=" contains=@haskellTop,beginCodeBegin containedin=@lhsTeXContainer
 
+syntax match lhsInvBirdTrack "^<"
 syntax match lhsBirdTrack "^>" contained
-
-syntax region lhsInvHaskellBirdTrack start="^<" end="\%(^[^<]\)\@=" contains=lhsInvBirdTrack containedin=@lhsTeXContainer
-
-syntax match lhsInvBirdTrack "^<" contained
 
 syntax match beginCodeBegin "^\\begin" nextgroup=beginCodeCode contained
 syntax region beginCodeCode  matchgroup=texDelimiter start="{" end="}"

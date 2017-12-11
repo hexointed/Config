@@ -1,11 +1,14 @@
 import XMonad
 import XMonad.Util.EZConfig
 import XMonad.Hooks.SetWMName
+import XMonad.Layout.NoBorders
 
 main = xmonad $ 
-	(defaultConfig 
+	(def
 		{ startupHook = setWMName "LG3D" 
 		, borderWidth = 2
+		, focusedBorderColor = "#000000"
+		, normalBorderColor = "#ffffff"
 		}
 	) `additionalKeysP` myKeys
 

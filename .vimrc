@@ -48,7 +48,8 @@ endfunction
 
 "use TAB as autocomplete key
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <S-Tab> <C-l>
+inoremap <S-Tab> <C-p>
+command W execute "w"
 
 " <CR>: close popup and save indent. And don't remove lines with only 
 " whitespace.

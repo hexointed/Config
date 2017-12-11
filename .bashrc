@@ -1,4 +1,5 @@
 setxkbmap -option caps:escape
+xsetroot -solid grey
 
 # If not running interactively, don't do anything
 case $- in

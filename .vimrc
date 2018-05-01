@@ -82,6 +82,9 @@ let g:Hours=0
 let g:Minutes=0
 
 au BufNewFile,BufRead *.idr set filetype=haskell
+au BufNewFile,BufRead *.y set filetype=haskell
+au BufNewFile,BufRead *.fut set filetype=haskell
+au BufNewFile,BufRead *.ts set filetype=typescript
 
 function! Sum()
 	let g:Hours = 0

@@ -8,3 +8,5 @@ set keymap vi-insert
 Control-l: clear-screen 
 
 set show-mode-in-prompt on
+set vi-ins-mode-string "i"
+set vi-cmd-mode-string "c"

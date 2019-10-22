@@ -13,10 +13,10 @@ let g:neocomplete#sources#buffer#max_keyword_length = 8
 
 let &colorcolumn=81
 
-set noexpandtab
+set expandtab
 set copyindent
 set preserveindent
-set softtabstop=0
+set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 

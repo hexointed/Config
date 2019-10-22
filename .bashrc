@@ -1,3 +1,10 @@
+export PATH="$HOME/bin:$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH:~/Xilinx/Vivado/2016.4/bin:~/Qt5.10.1/Tools/QtCreator/bin:~/bin"
+
+#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:~/Qt5.10.1/5.10.1/gcc_64/lib"
+
+export EDITOR=vim
+export VISUAL=$EDITOR
+
 setxkbmap -option caps:escape
 xsetroot -solid grey
 
@@ -10,8 +17,8 @@ esac
 # History settings
 HISTCONTROL=ignoreboth
 shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -24,10 +31,9 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-PS1='\w> '
+PS1='${PWD#"${PWD%/*/*}/"} > '
 
 export TERM='xterm-256color'
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -46,7 +52,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/bin:$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH:~/Xilinx/Vivado/2016.4/bin" # Add RVM to PATH for scripting
 alias ghci='ghci -fno-warn-tabs'
 alias ghc='ghc -fno-warn-tabs'
 alias web='xdg-open ~/test.html > /dev/null 2> /dev/null'
@@ -58,3 +63,6 @@ alias open="xdg-open 2> /dev/null"
 alias vim="vim -c \":tab ball\""
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep --color=none -E "state|time\ to|percentage"'
 alias brightness='xrandr --output eDP-1 --brightness'
+alias t='konsole'
+alias finds='find . | grep -v pristine | grep -v tags | grep -v branches | grep -v target | grep -v iats_root | grep -v Makefile | xargs grep 2>/dev/null'
+alias svnclean="svn status --no-ignore | grep '^[I?]' | cut -c 9- | while IFS= read -r f; do rm -rf \"$f\"; done"

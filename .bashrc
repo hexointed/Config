@@ -1,6 +1,7 @@
 export PATH="$HOME/bin:$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH:~/Xilinx/Vivado/2016.4/bin:~/Qt5.10.1/Tools/QtCreator/bin:~/bin"
 
 #export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:~/Qt5.10.1/5.10.1/gcc_64/lib"
+source "/home/elias/.wd"
 
 export EDITOR=vim
 export VISUAL=$EDITOR
@@ -64,5 +65,6 @@ alias vim="vim -c \":tab ball\""
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep --color=none -E "state|time\ to|percentage"'
 alias brightness='xrandr --output eDP-1 --brightness'
 alias t='konsole'
-alias finds='find . | grep -v pristine | grep -v tags | grep -v branches | grep -v target | grep -v iats_root | grep -v Makefile | xargs grep 2>/dev/null'
+alias finds='find . | grep -sv pristine | grep -v tags | grep -v branches | grep -v target | grep -v iats_root | grep -v Makefile | xargs grep -s'
 alias svnclean="svn status --no-ignore | grep '^[I?]' | cut -c 9- | while IFS= read -r f; do rm -rf \"$f\"; done"
+alias b="cde b"

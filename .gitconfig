@@ -3,3 +3,12 @@
 	email = forsberg.elias@gmail.com
 [push]
 	default = matching
+[alias]
+	f = svn fetch
+	p = svn rebase
+	squash = git reset --soft git-svn
+	sync = svn dcommit
+[core]
+	autocrlf = false
+	eol = lf
+	whitespace = cr-at-eol

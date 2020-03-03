@@ -65,6 +65,8 @@ alias vim="vim -c \":tab ball\""
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep --color=none -E "state|time\ to|percentage"'
 alias brightness='xrandr --output eDP-1 --brightness'
 alias t='konsole'
-alias finds='find . | grep -sv pristine | grep -v tags | grep -v branches | grep -v target | grep -v iats_root | grep -v Makefile | xargs grep -s'
+alias findall='find . | grep -sv pristine | grep -v tags | grep -v Makefile | xargs grep -s'
+alias finds='git ls-files | grep -v tags | grep -v branches | xargs grep -s'
+alias findb='git ls-files | grep -v tags | xargs grep -s'
 alias svnclean="svn status --no-ignore | grep '^[I?]' | cut -c 9- | while IFS= read -r f; do rm -rf \"$f\"; done"
 alias b="cde b"

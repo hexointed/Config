@@ -12,3 +12,5 @@
 	autocrlf = false
 	eol = lf
 	whitespace = cr-at-eol
+[svn]
+	rmdir = true

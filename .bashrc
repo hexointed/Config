@@ -18,8 +18,8 @@ esac
 # History settings
 HISTCONTROL=ignoreboth
 shopt -s histappend
-HISTSIZE=10000
-HISTFILESIZE=10000
+HISTSIZE=100000
+HISTFILESIZE=100000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -66,7 +66,8 @@ alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep --co
 alias brightness='xrandr --output eDP-1 --brightness'
 alias t='konsole'
 alias findall='find . | grep -sv pristine | grep -v tags | grep -v Makefile | xargs grep -s'
-alias finds='git ls-files | grep -v tags | grep -v branches | xargs grep -s'
-alias findb='git ls-files | grep -v tags | xargs grep -s'
+alias finds='git ls-files -z | grep -zv tags | grep -zv branches | xargs -0 grep -s'
+alias findb='git ls-files -z | grep -zv tags | xargs -0 grep -s'
 alias svnclean="svn status --no-ignore | grep '^[I?]' | cut -c 9- | while IFS= read -r f; do rm -rf \"$f\"; done"
 alias b="cde b"
+alias bb="cde b"

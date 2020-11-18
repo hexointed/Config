@@ -3,6 +3,9 @@
 .*
 *~
 
+# But we want to track vim config and plugins
+!.vim
+
 # Compiled source #
 ###################
 *.com

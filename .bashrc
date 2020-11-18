@@ -73,3 +73,4 @@ alias svnclean="svn status --no-ignore | grep '^[I?]' | cut -c 9- | while IFS= r
 alias b='cde build install -T 4 2>&1 | sed "s/\(.*Unpacking\) [^[:space:]]*\/\([^[:space:]]*\).*/\1 \2/" | grep -E "ERROR|BUILD FAILURE|BUILD SUCCESS|Fault:|Total time:|Finished at:|error:|warning:|note:|undefined|Unpacking|make: \*\*\*|Error:|RCC: Error|Cannot find file:|WARNING:"'
 alias bb=b
 alias =b
+alias B=b

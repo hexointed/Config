@@ -8,9 +8,17 @@
 	p = svn rebase
 	squash = git reset --soft git-svn
 	sync = svn dcommit
+	ls-changes = ls-files -mo --exclude-standard
 [core]
 	autocrlf = false
 	eol = lf
 	whitespace = cr-at-eol
 [svn]
 	rmdir = true
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true

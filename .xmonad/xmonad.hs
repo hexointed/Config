@@ -17,9 +17,10 @@ main = xmonad $
 			    ++ show xres 
 			    ++ "x" 
 			    ++ show yres
-		, borderWidth = 2
+		, borderWidth = 0
+		, layoutHook = Tall 1 (1/20) (1/2)
 		, focusedBorderColor = "#000000"
-		, normalBorderColor = "#ffffff"
+		, normalBorderColor = "#f4f4f4"
 		, terminal = "konsole"
 		}
 	) `additionalKeysP` myKeys

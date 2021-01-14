@@ -1,6 +1,5 @@
-export PATH="$HOME/bin:$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH:~/Xilinx/Vivado/2016.4/bin:~/Qt5.10.1/Tools/QtCreator/bin:~/bin"
+export PATH="$HOME/bin:$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH"
 
-#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:~/Qt5.10.1/5.10.1/gcc_64/lib"
 source "/home/elias/.wd"
 
 export EDITOR=vim

@@ -1,6 +1,14 @@
-export PATH="$HOME/bin:$HOME/.rvm/bin:/home/elias/.local/bin:/opt/ghc/bin:/opt/cabal/1.24/bin:$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="/home/developer/.local/bin:$PATH"
+export PATH="/opt/ghc/bin:$PATH"
+export PATH="/opt/cabal/1.24/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 
-source "/home/elias/.wd"
+#useful inside container
+export PATH="/tools/cmake/bin:/tools/ninja:/usr/bin/python3:$PATH"
+
+source "/home/developer/.wd"
 
 export EDITOR=vim
 export VISUAL=$EDITOR
@@ -73,3 +81,5 @@ alias b='cde build install -T 4 2>&1 | sed "s/\(.*Unpacking\) [^[:space:]]*\/\([
 alias bb=b
 alias =b
 alias B=b
+alias k=konsole
+alias d='~/localdevenv/start-up.sh'

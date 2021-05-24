@@ -1,11 +1,11 @@
 [user]
 	name = Elias Forsberg
-	email = forsberg.elias@gmail.com
+	email = elias.forsberg@jeppesen.com
 [push]
 	default = matching
 [alias]
-	f = svn fetch
-	p = svn rebase
+	f = fetch
+	p = pull
 	squash = git reset --soft git-svn
 	sync = svn dcommit
 	ls-changes = ls-files -mo --exclude-standard

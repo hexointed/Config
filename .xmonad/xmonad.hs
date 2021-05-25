@@ -5,18 +5,14 @@ import XMonad.Layout.NoBorders
 import XMonad.Hooks.Script
 
 xres, yres :: Int
-xres = 2560
-yres = 1440
+xres = 1920
+yres = 1200
 
 main = xmonad $ 
 	(defaultConfig
 		{ startupHook = do
 			setWMName "LG3D" 
-			spawn $ 
-			    "xrandr --output Virtual1 --mode " 
-			    ++ show xres 
-			    ++ "x" 
-			    ++ show yres
+			xrandr 1
 		, borderWidth = 0
 		, layoutHook = Tall 1 (1/20) (1/2)
 		, focusedBorderColor = "#000000"
@@ -37,3 +33,8 @@ xdo action = spawn ("xdotool " ++ action)
 mousemove x y = " mousemove " ++ show x ++ " " ++ show y
 
 safemouse x y = mousemove (xres - x) (yres - y) ++ mousemove x y
+
+xrandr nDisp = spawn $
+    "xrandr --output Virtual" ++ show nDisp
+    ++ " --mode " ++ show xres ++ "x" ++ show yres
+    ++ " --pos " ++ show ((nDisp - 1) * xres) ++ "x0"

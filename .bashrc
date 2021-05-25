@@ -39,7 +39,7 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-PS1='${PWD#"${PWD%/*/*}/"} > '
+PS1='${PWD#"${PWD%/*/*}/"} >> '
 
 export TERM='xterm-256color'
 # enable color support of ls and also add handy aliases
@@ -83,3 +83,5 @@ alias =b
 alias B=b
 alias k=konsole
 alias d='~/localdevenv/start-up.sh'
+alias s='ssh -Y elifor@gotids12p.got.jeppesensystems.com'
+alias s8='ssh -Y elifor@gotids14p.got.jeppesensystems.com'

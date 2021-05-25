@@ -1,6 +1,6 @@
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
-export PATH="/home/developer/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/ghc/bin:$PATH"
 export PATH="/opt/cabal/1.24/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
@@ -8,7 +8,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 #useful inside container
 export PATH="/tools/cmake/bin:/tools/ninja:/usr/bin/python3:$PATH"
 
-source "/home/developer/.wd"
+source "$HOME/.wd"
 
 export EDITOR=vim
 export VISUAL=$EDITOR

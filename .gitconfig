@@ -4,11 +4,11 @@
 [push]
 	default = matching
 [alias]
-	f = fetch
 	p = pull
 	squash = git reset --soft git-svn
 	sync = svn dcommit
 	ls-changes = ls-files -mo --exclude-standard
+	f = submodule foreach git
 [core]
 	autocrlf = false
 	eol = lf

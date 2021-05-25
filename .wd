@@ -73,6 +73,15 @@ wd() {
         return 1
       fi
     ;;
+    xaddd)
+      if ln -s "$PWD" "$wdd/$(basename $PWD)" &> /dev/null; then
+        echo "added warp point '$(basename $PWD)' ($PWD)"
+        return 0
+      else
+        echo "Error adding warp point '$(basename $PWD)' ($PWD)"
+        return 1
+      fi
+    ;;
     xrm)
       if rm -f "$point_path" &> /dev/null; then
         echo "Removed warp point '$point_name' ($point_destination)"

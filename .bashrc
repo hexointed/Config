@@ -5,6 +5,8 @@ export PATH="/opt/ghc/bin:$PATH"
 export PATH="/opt/cabal/1.24/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 
+export LD_LIBRARY_PATH="$HOME/lib"
+
 #useful inside container
 export PATH="/tools/cmake/bin:/tools/ninja:/usr/bin/python3:$PATH"
 
@@ -39,7 +41,8 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-PS1='${PWD#"${PWD%/*/*}/"} >> '
+export version=$(cat /etc/redhat-release | sed -e  's/.*\([0-9]\)\..*/\1/')
+PS1='${PWD#"${PWD%/*/*}/"} $version> '
 
 export TERM='xterm-256color'
 # enable color support of ls and also add handy aliases

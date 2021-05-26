@@ -34,6 +34,8 @@ setglobal fileencoding=utf-8
 set incsearch
 set hlsearch
 
+set tags=tags;/
+
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
   if exists(':NeoCompleteLock')==2

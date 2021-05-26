@@ -42,7 +42,7 @@ shopt -s globstar
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 export version=$(cat /etc/redhat-release | sed -e  's/.*\([0-9]\)\..*/\1/')
-PS1='${PWD#"${PWD%/*/*}/"} $version> '
+PS1=' ${PWD#"${PWD%/*/*}/"} $version> '
 
 export TERM='xterm-256color'
 # enable color support of ls and also add handy aliases
@@ -74,10 +74,17 @@ alias open="xdg-open 2> /dev/null"
 alias vim="vim -c \":tab ball\""
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep --color=none -E "state|time\ to|percentage"'
 alias brightness='xrandr --output eDP-1 --brightness'
-alias t='konsole'
 alias finds="find . -not -path '*/\.*' -type f -print0 | xargs -0 grep -s"
 alias finda="find . -type f -print0 | xargs -0 grep -s"
-alias k=konsole
+
+alias t='konsole'
+alias k='t'
+
+alias b='ninja && ninja carmsys_all'
+alias bb=b
+alias B=b
+alias =b
+
 alias d='~/localdevenv/start-up.sh'
 alias s='ssh -Y elifor@gotids12p.got.jeppesensystems.com'
 alias s8='ssh -Y elifor@gotids14p.got.jeppesensystems.com'

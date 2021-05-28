@@ -35,6 +35,7 @@ set incsearch
 set hlsearch
 
 set tags=tags;/
+set directory=$HOME/.vim/.swapfiles//
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()

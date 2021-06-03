@@ -36,6 +36,8 @@ set hlsearch
 
 set tags=tags;/
 set directory=$HOME/.vim/.swapfiles//
+set path+=**
+set wildmenu
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
@@ -90,23 +92,3 @@ au BufNewFile,BufRead *.idr set filetype=haskell
 au BufNewFile,BufRead *.y set filetype=haskell
 au BufNewFile,BufRead *.fut set filetype=haskell
 au BufNewFile,BufRead *.ts set filetype=typescript
-
-function! Sum()
-	let g:Hours = 0
-	let g:Minutes = 0
-	normal Gdd
-	call feedkeys(":%s/\\(\\d\\+\\):\\(\\d\\+\\)/\\=Sum_h(submatch(1),submatch(2),submatch(0))/\<CR>\<Esc>G")
-	call feedkeys("oTotal:     \<Esc>")
-	call feedkeys("\"=g:Hours\<CR>pa:\<Esc>\"=g:Minutes\<CR>p\<Esc>")
-	call feedkeys(":if g:Minutes <= 9 | call feedkeys(\"i0\\<Esc>\") | endif | if g:Hours < 100 | call feedkeys(\"0wa \\<Esc>$\") | endif \<CR>")
-endfunction
-
-function! Sum_h(hours, minutes, string)
-	let g:Minutes = g:Minutes + a:minutes
-	if g:Minutes >= 60
-		let g:Minutes = g:Minutes - 60
-		let g:Hours = g:Hours + 1
-	endif
-	let g:Hours = g:Hours + a:hours
-	return a:string
-endfunction
